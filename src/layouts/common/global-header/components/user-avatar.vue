@@ -1,8 +1,8 @@
 <template>
   <n-dropdown :options="options" @select="handleDropdown">
     <hover-container class="px-12px" :inverted="theme.header.inverted">
-      <icon-local-avatar class="text-32px" />
-      <span class="pl-8px text-16px font-medium">{{ auth.userInfo.userName }}</span>
+      <n-avatar class="cursor-pointer" round :size="32" :src="auth.user.avatar.low_url" />
+      <span class="pl-8px text-16px font-medium">{{ auth.user.nickname }}</span>
     </hover-container>
   </n-dropdown>
 </template>

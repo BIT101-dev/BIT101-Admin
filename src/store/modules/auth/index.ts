@@ -7,27 +7,30 @@ import { localStg } from '@/utils';
 import { $t } from '@/locales';
 import { useTabStore } from '../tab';
 import { useRouteStore } from '../route';
-import { getToken, getUserInfo, clearAuthStorage } from './helpers';
+import { getFakeCookie, getUser, clearAuthStorage } from './helpers';
 
 interface AuthState {
   /** 用户信息 */
-  userInfo: Auth.UserInfo;
-  /** 用户token */
-  token: string;
+  user: BIT101.User;
+  /** 用户fake_cookie */
+  fake_cookie: string;
   /** 登录的加载状态 */
   loginLoading: boolean;
+  /** 用户角色 */
+  role: Auth.RoleType;
 }
 
 export const useAuthStore = defineStore('auth-store', {
   state: (): AuthState => ({
-    userInfo: getUserInfo(),
-    token: getToken(),
+    user: getUser(),
+    role: 'admin',
+    fake_cookie: getFakeCookie(),
     loginLoading: false
   }),
   getters: {
     /** 是否登录 */
     isLogin(state) {
-      return Boolean(state.token);
+      return Boolean(state.fake_cookie);
     }
   },
   actions: {
@@ -54,7 +57,7 @@ export const useAuthStore = defineStore('auth-store', {
      * 处理登录后成功或失败的逻辑
      * @param backendToken - 返回的token
      */
-    async handleActionAfterLogin(backendToken: ApiAuth.Token) {
+    async handleActionAfterLogin(backendToken: ApiAuth.Login) {
       const route = useRouteStore();
       const { toLoginRedirect } = useRouterPush(false);
 
@@ -70,7 +73,7 @@ export const useAuthStore = defineStore('auth-store', {
         if (route.isInitAuthRoute) {
           window.$notification?.success({
             title: $t('page.login.common.loginSuccess'),
-            content: $t('page.login.common.welcomeBack', { userName: this.userInfo.userName }),
+            content: $t('page.login.common.welcomeBack', { userName: this.user.nickname }),
             duration: 3000
           });
         }
@@ -85,23 +88,22 @@ export const useAuthStore = defineStore('auth-store', {
      * 根据token进行登录
      * @param backendToken - 返回的token
      */
-    async loginByToken(backendToken: ApiAuth.Token) {
+    async loginByToken(backendToken: ApiAuth.Login) {
       let successFlag = false;
 
       // 先把token存储到缓存中(后面接口的请求头需要token)
-      const { token, refreshToken } = backendToken;
-      localStg.set('token', token);
-      localStg.set('refreshToken', refreshToken);
+      const { fake_cookie } = backendToken;
+      localStg.set('fake_cookie', fake_cookie);
 
       // 获取用户信息
       const { data } = await fetchUserInfo();
       if (data) {
         // 成功后把用户信息存储到缓存中
-        localStg.set('userInfo', data);
+        localStg.set('user', data.user);
 
         // 更新状态
-        this.userInfo = data;
-        this.token = token;
+        this.user = data.user;
+        this.fake_cookie = fake_cookie;
 
         successFlag = true;
       }
@@ -120,35 +122,6 @@ export const useAuthStore = defineStore('auth-store', {
         await this.handleActionAfterLogin(data);
       }
       this.loginLoading = false;
-    },
-    /**
-     * 更换用户权限(切换账号)
-     * @param userRole
-     */
-    async updateUserRole(userRole: Auth.RoleType) {
-      const { resetRouteStore, initAuthRoute } = useRouteStore();
-
-      const accounts: Record<Auth.RoleType, { userName: string; password: string }> = {
-        super: {
-          userName: 'Super',
-          password: 'super123'
-        },
-        admin: {
-          userName: 'Admin',
-          password: 'admin123'
-        },
-        user: {
-          userName: 'User01',
-          password: 'user01123'
-        }
-      };
-      const { userName, password } = accounts[userRole];
-      const { data } = await fetchLogin(userName, password);
-      if (data) {
-        await this.loginByToken(data);
-        resetRouteStore();
-        initAuthRoute();
-      }
     }
   }
 });

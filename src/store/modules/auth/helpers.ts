@@ -1,25 +1,34 @@
 import { localStg } from '@/utils';
 
 /** 获取token */
-export function getToken() {
-  return localStg.get('token') || '';
+export function getFakeCookie() {
+  return localStg.get('fake_cookie') || '';
 }
 
 /** 获取用户信息 */
-export function getUserInfo() {
-  const emptyInfo: Auth.UserInfo = {
-    userId: '',
-    userName: '',
-    userRole: 'user'
+export function getUser() {
+  const emptyUser: BIT101.User = {
+    id: 0,
+    nickname: '',
+    motto: '',
+    create_time: '',
+    avatar: {
+      low_url: '',
+      mid: '',
+      url: ''
+    },
+    type: {
+      color: '',
+      text: ''
+    }
   };
-  const userInfo: Auth.UserInfo = localStg.get('userInfo') || emptyInfo;
+  const user: BIT101.User = localStg.get('user') || emptyUser;
 
-  return userInfo;
+  return user;
 }
 
 /** 去除用户相关缓存 */
 export function clearAuthStorage() {
-  localStg.remove('token');
-  localStg.remove('refreshToken');
-  localStg.remove('userInfo');
+  localStg.remove('fake_cookie');
+  localStg.remove('user');
 }

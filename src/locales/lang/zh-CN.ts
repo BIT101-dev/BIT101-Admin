@@ -1,6 +1,6 @@
 const locale: I18nType.Schema = {
   system: {
-    title: 'Soybean管理系统'
+    title: 'BIT101管理系统'
   },
   common: {
     add: '添加',

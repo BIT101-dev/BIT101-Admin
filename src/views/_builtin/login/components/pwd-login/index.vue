@@ -1,3 +1,17 @@
+<!--
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 01:15:38
+ * @Description: 
+ * _(:з」∠)_
+-->
+<!--
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 00:15:23
+ * @Description: 
+ * _(:з」∠)_
+-->
 <template>
   <n-form ref="formRef" :model="model" :rules="rules" size="large" :show-label="false">
     <n-form-item path="userName">
@@ -28,28 +42,16 @@
       >
         {{ $t('page.login.common.confirm') }}
       </n-button>
-      <div class="flex-y-center justify-between">
-        <n-button class="flex-1" :block="true" @click="toLoginModule('code-login')">
-          {{ loginModuleLabels['code-login'] }}
-        </n-button>
-        <div class="w-12px"></div>
-        <n-button class="flex-1" :block="true" @click="toLoginModule('register')">
-          {{ loginModuleLabels.register }}
-        </n-button>
-      </div>
     </n-space>
-    <other-account @login="handleLoginOtherAccount" />
   </n-form>
 </template>
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import type { FormInst, FormRules } from 'naive-ui';
-import { loginModuleLabels } from '@/constants';
 import { useAuthStore } from '@/store';
 import { useRouterPush } from '@/composables';
 import { formRules } from '@/utils';
-import { OtherAccount } from './components';
 
 const auth = useAuthStore();
 const { login } = useAuthStore();
@@ -58,8 +60,8 @@ const { toLoginModule } = useRouterPush();
 const formRef = ref<HTMLElement & FormInst>();
 
 const model = reactive({
-  userName: 'Soybean',
-  password: 'soybean123'
+  userName: '',
+  password: ''
 });
 
 const rules: FormRules = {
@@ -73,11 +75,6 @@ async function handleSubmit() {
 
   const { userName, password } = model;
 
-  login(userName, password);
-}
-
-function handleLoginOtherAccount(param: { userName: string; password: string }) {
-  const { userName, password } = param;
   login(userName, password);
 }
 </script>

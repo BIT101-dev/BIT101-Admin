@@ -1,15 +1,13 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 00:41:17
+ * @Description:
+ * _(:з」∠)_
+ */
 import axios from 'axios';
 import type { AxiosResponse, AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { REFRESH_TOKEN_CODE } from '@/config';
-import {
-  localStg,
-  handleAxiosError,
-  handleBackendError,
-  handleResponseError,
-  handleServiceResult,
-  transformRequestData
-} from '@/utils';
-import { handleRefreshToken } from './helpers';
+import { localStg, handleAxiosError, handleServiceResult, transformRequestData } from '@/utils';
 
 type RefreshRequestQueue = (config: AxiosRequestConfig) => void;
 
@@ -57,7 +55,7 @@ export default class CustomAxiosInstance {
           const contentType = handleConfig.headers['Content-Type'] as UnionKey.ContentType;
           handleConfig.data = await transformRequestData(handleConfig.data, contentType);
           // 设置token
-          handleConfig.headers.Authorization = localStg.get('token') || '';
+          handleConfig.headers['fake-cookie'] = localStg.get('fake_cookie') || '';
         }
         return handleConfig;
       },
@@ -68,42 +66,14 @@ export default class CustomAxiosInstance {
     );
     this.instance.interceptors.response.use(
       (async response => {
-        const { status, config } = response;
-        if (status === 200 || status < 300 || status === 304) {
-          const backend = response.data;
-          const { codeKey, dataKey, successCode } = this.backendConfig;
-          // 请求成功
-          if (backend[codeKey] === successCode) {
-            return handleServiceResult(null, backend[dataKey]);
-          }
-
-          // token失效, 刷新token
-          if (REFRESH_TOKEN_CODE.includes(backend[codeKey])) {
-            // 原始请求
-            const originRequest = new Promise(resolve => {
-              this.retryQueues.push((refreshConfig: AxiosRequestConfig) => {
-                config.headers.Authorization = refreshConfig.headers?.Authorization;
-                resolve(this.instance.request(config));
-              });
-            });
-
-            if (!this.isRefreshing) {
-              this.isRefreshing = true;
-              const refreshConfig = await handleRefreshToken(response.config);
-              if (refreshConfig) {
-                this.retryQueues.map(cb => cb(refreshConfig));
-              }
-              this.retryQueues = [];
-              this.isRefreshing = false;
-            }
-            return originRequest;
-          }
-
-          const error = handleBackendError(backend, this.backendConfig);
-          return handleServiceResult(error, null);
+        if (response.data.msg) {
+          // 弹出提示
+          window.$notification?.success({
+            content: response.data.msg,
+            duration: 3000
+          });
         }
-        const error = handleResponseError(response);
-        return handleServiceResult(error, null);
+        return response;
       }) as (response: AxiosResponse<any, any>) => Promise<AxiosResponse<any, any>>,
       (axiosError: AxiosError) => {
         const error = handleAxiosError(axiosError);

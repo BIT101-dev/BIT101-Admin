@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 00:22:43
+ * @Description:
+ * _(:з」∠)_
+ */
 /** 统一失败和成功的请求结果的数据类型 */
 export async function handleServiceResult<T = any>(error: Service.RequestError | null, data: any) {
   if (error) {

@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 00:56:03
+ * @Description:
+ * _(:з」∠)_
+ */
 import UAParser from 'ua-parser-js';
 import { useAuthStore } from '@/store';
 import { isArray, isString } from '@/utils';
@@ -14,7 +21,7 @@ export function usePermission() {
   const auth = useAuthStore();
 
   function hasPermission(permission: Auth.RoleType | Auth.RoleType[]) {
-    const { userRole } = auth.userInfo;
+    const userRole = auth.role;
 
     let has = userRole === 'super';
     if (!has) {

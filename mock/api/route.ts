@@ -1,16 +1,21 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 01:50:55
+ * @Description:
+ * _(:з」∠)_
+ */
 import type { MockMethod } from 'vite-plugin-mock';
-import { routeModel, userModel } from '../model';
+import { routeModel } from '../model';
 
 const apis: MockMethod[] = [
   {
     url: '/mock/getUserRoutes',
     method: 'post',
-    response: (options: Service.MockOption): Service.MockServiceResult => {
-      const { userId = undefined } = options.body;
-
+    response: (): Service.MockServiceResult => {
       const routeHomeName: AuthRoute.LastDegreeRouteKey = 'dashboard_analysis';
 
-      const role = userModel.find(item => item.userId === userId)?.userRole || 'user';
+      const role = 'user';
 
       const filterRoutes = routeModel[role];
 

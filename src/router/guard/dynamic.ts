@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-10-29 01:06:39
+ * @Description:
+ * _(:з」∠)_
+ */
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 import { routeName } from '@/router';
 import { useRouteStore } from '@/store';
@@ -12,7 +19,7 @@ export async function createDynamicRouteGuard(
   next: NavigationGuardNext
 ) {
   const route = useRouteStore();
-  const isLogin = Boolean(localStg.get('token'));
+  const isLogin = Boolean(localStg.get('fake_cookie'));
 
   // 初始化权限路由
   if (!route.isInitAuthRoute) {

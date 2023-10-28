@@ -2,15 +2,9 @@
   <div class="h-full">
     <n-card title="权限切换" :bordered="false" class="h-full rounded-8px shadow-sm">
       <div class="pb-12px">
-        <n-gradient-text type="primary" :size="20">当前用户的权限：{{ auth.userInfo.userRole }}</n-gradient-text>
+        <n-gradient-text type="primary" :size="20">当前用户的权限：{{ auth.role }}</n-gradient-text>
       </div>
-      <n-select
-        :value="auth.userInfo.userRole"
-        class="w-120px"
-        size="small"
-        :options="options"
-        @update:value="auth.updateUserRole"
-      />
+      <n-select :value="auth.role" class="w-120px" size="small" :options="options" />
       <div class="py-12px">
         <n-gradient-text type="primary" :size="20">权限指令 v-permission</n-gradient-text>
       </div>
@@ -45,7 +39,7 @@ const { hasPermission } = usePermission();
 const options: SelectOption[] = userRoleOptions;
 
 watch(
-  () => auth.userInfo.userRole,
+  () => auth.role,
   async () => {
     app.reloadPage();
   }
