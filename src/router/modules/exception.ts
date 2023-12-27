@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 18:00:40
+ * @Description:
+ * _(:з」∠)_
+ */
 const exception: AuthRoute.Route = {
   name: 'exception',
   path: '/exception',
@@ -41,7 +48,8 @@ const exception: AuthRoute.Route = {
     i18nTitle: 'routes.exception._value',
     title: '异常页',
     icon: 'ant-design:exception-outlined',
-    order: 7
+    order: 7,
+    hide: true
   }
 };
 

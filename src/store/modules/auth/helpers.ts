@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-26 23:26:25
+ * @Description:
+ * _(:з」∠)_
+ */
 import { localStg } from '@/utils';
 
 /** 获取token */
@@ -17,7 +24,8 @@ export function getUser() {
       mid: '',
       url: ''
     },
-    type: {
+    identity: {
+      id: 0,
       color: '',
       text: ''
     }

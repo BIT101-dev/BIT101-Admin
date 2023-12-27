@@ -1,63 +1,58 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 18:08:55
+ * @Description:
+ * _(:з」∠)_
+ */
 const document: AuthRoute.Route = {
   name: 'document',
   path: '/document',
   component: 'basic',
   children: [
     {
-      name: 'document_vue',
-      path: '/document/vue',
+      name: 'document_api',
+      path: '/document/api',
       component: 'self',
       meta: {
-        title: 'vue文档',
-        i18nTitle: 'routes.document.vue',
+        title: 'BIT101-API',
+        i18nTitle: 'routes.document.api',
         requiresAuth: true,
-        icon: 'logos:vue'
+        icon: 'simple-icons:apifox'
       }
     },
+    // {
+    //   name: 'document_project',
+    //   path: '/document/project',
+    //   component: 'self',
+    //   meta: {
+    //     title: '项目文档',
+    //     i18nTitle: 'routes.document.project',
+    //     requiresAuth: true,
+    //     localIcon: 'logo'
+    //   }
+    // },
     {
-      name: 'document_vite',
-      path: '/document/vite',
-      component: 'self',
+      name: 'document_feishu-link',
+      path: '/document/feishu-link',
       meta: {
-        title: 'vite文档',
-        i18nTitle: 'routes.document.vite',
+        title: '飞书',
         requiresAuth: true,
-        icon: 'logos:vitejs'
-      }
-    },
-    {
-      name: 'document_naive',
-      path: '/document/naive',
-      component: 'self',
-      meta: {
-        title: 'naive文档',
-        i18nTitle: 'routes.document.naive',
-        requiresAuth: true,
-        icon: 'logos:naiveui'
-      }
-    },
-    {
-      name: 'document_project',
-      path: '/document/project',
-      component: 'self',
-      meta: {
-        title: '项目文档',
-        i18nTitle: 'routes.document.project',
-        requiresAuth: true,
-        localIcon: 'logo'
-      }
-    },
-    {
-      name: 'document_project-link',
-      path: '/document/project-link',
-      meta: {
-        title: '项目文档(外链)',
-        i18nTitle: 'routes.document.project-link',
-        requiresAuth: true,
-        localIcon: 'logo',
-        href: 'https://admin-docs.soybeanjs.cn/'
+        icon: 'icon-park:new-lark',
+        href: 'https://bit101-project.feishu.cn/'
       }
     }
+    // {
+    //   name: 'document_naive',
+    //   path: '/document/naive',
+    //   component: 'self',
+    //   meta: {
+    //     title: 'NaiveUI文档',
+    //     i18nTitle: 'routes.document.naive',
+    //     requiresAuth: true,
+    //     icon: 'logos:naiveui'
+    //   }
+    // }
   ],
   meta: {
     title: '文档',

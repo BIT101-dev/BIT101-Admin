@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 18:01:19
+ * @Description:
+ * _(:з」∠)_
+ */
 const authDemo: AuthRoute.Route = {
   name: 'auth-demo',
   path: '/auth-demo',
@@ -31,7 +38,8 @@ const authDemo: AuthRoute.Route = {
     title: '权限示例',
     i18nTitle: 'routes.auth-demo._value',
     icon: 'ic:baseline-security',
-    order: 5
+    order: 5,
+    hide: true
   }
 };
 

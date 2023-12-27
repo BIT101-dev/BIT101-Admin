@@ -12,6 +12,7 @@ import type {
   ScatterSeriesOption
 } from 'echarts/charts';
 import {
+  DataZoomComponent,
   DatasetComponent,
   GridComponent,
   LegendComponent,
@@ -66,7 +67,8 @@ echarts.use([
   GaugeChart,
   LabelLayout,
   UniversalTransition,
-  CanvasRenderer
+  CanvasRenderer,
+  DataZoomComponent
 ]);
 
 /**

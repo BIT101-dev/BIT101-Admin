@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 18:00:56
+ * @Description:
+ * _(:з」∠)_
+ */
 const multiMenu: AuthRoute.Route = {
   name: 'multi-menu',
   path: '/multi-menu',
@@ -54,7 +61,8 @@ const multiMenu: AuthRoute.Route = {
     title: '多级菜单',
     i18nTitle: 'routes.multi-menu._value',
     icon: 'carbon:menu',
-    order: 8
+    order: 8,
+    hide: true
   }
 };
 

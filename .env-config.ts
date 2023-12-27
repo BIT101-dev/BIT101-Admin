@@ -1,7 +1,7 @@
 /*
  * @Author: flwfdd
  * @Date: 2023-09-20 08:42:22
- * @LastEditTime: 2023-10-28 23:18:26
+ * @LastEditTime: 2023-12-26 23:32:34
  * @Description:
  * _(:з」∠)_
  */
@@ -11,7 +11,7 @@ type ServiceEnv = Record<ServiceEnvType, ServiceEnvConfig>;
 /** 不同请求服务的环境配置 */
 const serviceEnv: ServiceEnv = {
   dev: {
-    url: 'http://e5.flwfdd.xyz:8080'
+    url: 'https://dev.bit101.flwfdd.xyz'
   },
   test: {
     url: 'http://localhost:8080'

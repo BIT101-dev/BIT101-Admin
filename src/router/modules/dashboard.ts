@@ -21,6 +21,7 @@ const dashboard: AuthRoute.Route = {
       meta: {
         title: '工作台',
         requiresAuth: true,
+        hide: true,
         icon: 'icon-park-outline:workbench',
         i18nTitle: 'routes.dashboard.workbench'
       }

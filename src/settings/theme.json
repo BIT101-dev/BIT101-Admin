@@ -6,36 +6,18 @@
     "minWidth": 900,
     "mode": "vertical",
     "modeList": [
-      {
-        "value": "vertical",
-        "label": "左侧菜单模式"
-      },
-      {
-        "value": "vertical-mix",
-        "label": "左侧菜单混合模式"
-      },
-      {
-        "value": "horizontal",
-        "label": "顶部菜单模式"
-      },
-      {
-        "value": "horizontal-mix",
-        "label": "顶部菜单混合模式"
-      }
+      { "value": "vertical", "label": "左侧菜单模式" },
+      { "value": "vertical-mix", "label": "左侧菜单混合模式" },
+      { "value": "horizontal", "label": "顶部菜单模式" },
+      { "value": "horizontal-mix", "label": "顶部菜单混合模式" }
     ]
   },
   "scrollMode": "content",
   "scrollModeList": [
-    {
-      "value": "wrapper",
-      "label": "外层滚动"
-    },
-    {
-      "value": "content",
-      "label": "主体滚动"
-    }
+    { "value": "wrapper", "label": "外层滚动" },
+    { "value": "content", "label": "主体滚动" }
   ],
-  "themeColor": "#646cff",
+  "themeColor": "#ff9a57",
   "themeColorList": [
     "#1890ff",
     "#409EFF",
@@ -62,36 +44,18 @@
     "#6d4c41",
     "#546e7a"
   ],
-  "otherColor": {
-    "info": "#0099ad",
-    "success": "#52c41a",
-    "warning": "#faad14",
-    "error": "#f5222d"
-  },
+  "otherColor": { "info": "#4a4cd9", "success": "#52c41a", "warning": "#faad14", "error": "#f5222d" },
   "isCustomizeInfoColor": false,
   "fixedHeaderAndTab": true,
   "showReload": true,
-  "header": {
-    "inverted": false,
-    "height": 56,
-    "crumb": {
-      "visible": true,
-      "showIcon": true
-    }
-  },
+  "header": { "inverted": false, "height": 56, "crumb": { "visible": true, "showIcon": true } },
   "tab": {
     "visible": true,
     "height": 44,
     "mode": "chrome",
     "modeList": [
-      {
-        "value": "chrome",
-        "label": "谷歌风格"
-      },
-      {
-        "value": "button",
-        "label": "按钮风格"
-      }
+      { "value": "chrome", "label": "谷歌风格" },
+      { "value": "button", "label": "按钮风格" }
     ],
     "isCache": true
   },
@@ -106,55 +70,22 @@
   "menu": {
     "horizontalPosition": "flex-start",
     "horizontalPositionList": [
-      {
-        "value": "flex-start",
-        "label": "居左"
-      },
-      {
-        "value": "center",
-        "label": "居中"
-      },
-      {
-        "value": "flex-end",
-        "label": "居右"
-      }
+      { "value": "flex-start", "label": "居左" },
+      { "value": "center", "label": "居中" },
+      { "value": "flex-end", "label": "居右" }
     ]
   },
-  "footer": {
-    "visible": true,
-    "fixed": false,
-    "right": true,
-    "height": 48,
-    "inverted": false
-  },
+  "footer": { "visible": true, "fixed": false, "right": true, "height": 48, "inverted": false },
   "page": {
     "animate": true,
     "animateMode": "fade-slide",
     "animateModeList": [
-      {
-        "value": "fade-slide",
-        "label": "滑动"
-      },
-      {
-        "value": "fade",
-        "label": "消退"
-      },
-      {
-        "value": "fade-bottom",
-        "label": "底部消退"
-      },
-      {
-        "value": "fade-scale",
-        "label": "缩放消退"
-      },
-      {
-        "value": "zoom-fade",
-        "label": "渐变"
-      },
-      {
-        "value": "zoom-out",
-        "label": "闪现"
-      }
+      { "value": "fade-slide", "label": "滑动" },
+      { "value": "fade", "label": "消退" },
+      { "value": "fade-bottom", "label": "底部消退" },
+      { "value": "fade-scale", "label": "缩放消退" },
+      { "value": "zoom-fade", "label": "渐变" },
+      { "value": "zoom-out", "label": "闪现" }
     ]
   }
 }

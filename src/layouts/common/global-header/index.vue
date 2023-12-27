@@ -1,3 +1,10 @@
+<!--
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 19:32:06
+ * @Description:
+ * _(:з」∠)_
+-->
 <template>
   <dark-mode-container class="global-header flex-y-center h-full" :inverted="theme.header.inverted">
     <global-logo v-if="showLogo" :show-title="true" class="h-full" :style="{ width: theme.sider.width + 'px' }" />
@@ -12,7 +19,7 @@
       <full-screen />
       <theme-mode />
       <toggle-lang />
-      <system-message />
+      <!-- <system-message /> -->
       <setting-button v-if="showButton" />
       <user-avatar />
     </div>
@@ -31,7 +38,6 @@ import {
   HeaderMenu,
   MenuCollapse,
   SettingButton,
-  SystemMessage,
   ThemeMode,
   UserAvatar,
   ToggleLang

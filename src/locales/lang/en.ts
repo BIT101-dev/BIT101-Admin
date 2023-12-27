@@ -1,6 +1,6 @@
 const locale: I18nType.Schema = {
   system: {
-    title: 'BIT101 Admin'
+    title: 'BIT101-Admin'
   },
   common: {
     add: 'Add',
@@ -23,6 +23,7 @@ const locale: I18nType.Schema = {
     },
     document: {
       _value: 'Document',
+      api: 'BIT101-API',
       vue: 'Vue Document',
       vite: 'Vite Document',
       naive: 'NaiveUI Document',
@@ -81,11 +82,9 @@ const locale: I18nType.Schema = {
       }
     },
     management: {
-      _value: 'System Management',
-      auth: 'Auth',
-      role: 'Role',
-      route: 'Route',
-      user: 'User'
+      _value: 'Management',
+      report: 'Report',
+      preview: 'BIT101'
     },
     about: 'About'
   },

@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 18:00:23
+ * @Description:
+ * _(:з」∠)_
+ */
 const component: AuthRoute.Route = {
   name: 'component',
   path: '/component',
@@ -41,7 +48,8 @@ const component: AuthRoute.Route = {
     title: '组件示例',
     i18nTitle: 'routes.component._value',
     icon: 'cib:app-store',
-    order: 3
+    order: 3,
+    hide: true
   }
 };
 

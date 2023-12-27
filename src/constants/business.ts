@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 16:42:53
+ * @Description:
+ * _(:з」∠)_
+ */
 import { $t } from '@/locales';
 import { transformObjectToOption } from './_shared';
 
@@ -23,11 +30,19 @@ export const genderLabels: Record<UserManagement.GenderKey, string> = {
 };
 export const genderOptions = transformObjectToOption(genderLabels);
 
-/** 用户状态 */
-export const userStatusLabels: Record<UserManagement.UserStatusKey, string> = {
-  1: '启用',
-  2: '禁用',
-  3: '冻结',
-  4: '软删除'
+export enum ReportStatus {
+  WAITING = 0,
+  SUCCESS = 1,
+  FAIL = 2
+}
+
+export const reportStatusLabels: Record<BIT101.ReportStatus, string> = {
+  [ReportStatus.WAITING]: '未处理',
+  [ReportStatus.SUCCESS]: '举报成功',
+  [ReportStatus.FAIL]: '举报失败'
 };
-export const userStatusOptions = transformObjectToOption(userStatusLabels);
+export const reportStatusOptions = [
+  { value: ReportStatus.WAITING, label: reportStatusLabels[ReportStatus.WAITING] },
+  { value: ReportStatus.SUCCESS, label: reportStatusLabels[ReportStatus.SUCCESS] },
+  { value: ReportStatus.FAIL, label: reportStatusLabels[ReportStatus.FAIL] }
+];

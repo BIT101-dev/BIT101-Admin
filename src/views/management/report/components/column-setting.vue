@@ -1,3 +1,10 @@
+<!--
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 00:59:17
+ * @Description:
+ * _(:з」∠)_
+-->
 <template>
   <n-popover placement="bottom" trigger="click">
     <template #trigger>
@@ -26,7 +33,7 @@ import { ref, watch } from 'vue';
 import type { DataTableColumn } from 'naive-ui';
 import VueDraggable from 'vuedraggable';
 
-type Column = DataTableColumn<UserManagement.User>;
+type Column = DataTableColumn<BIT101.Report>;
 
 interface Props {
   columns: Column[];

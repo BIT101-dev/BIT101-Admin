@@ -331,6 +331,7 @@ declare namespace I18nType {
       };
       document: {
         _value: string;
+        api: string;
         vue: string;
         vite: string;
         naive: string;
@@ -390,10 +391,8 @@ declare namespace I18nType {
       };
       management: {
         _value: string;
-        auth: string;
-        role: string;
-        route: string;
-        user: string;
+        report: string;
+        preview: string;
       };
       about: string;
     };

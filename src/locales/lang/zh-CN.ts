@@ -1,6 +1,6 @@
 const locale: I18nType.Schema = {
   system: {
-    title: 'BIT101管理系统'
+    title: 'BIT101-Admin'
   },
   common: {
     add: '添加',
@@ -23,6 +23,7 @@ const locale: I18nType.Schema = {
     },
     document: {
       _value: '文档',
+      api: 'BIT101-API',
       vue: 'Vue文档',
       vite: 'Vite文档',
       naive: 'NaiveUI文档',
@@ -81,11 +82,9 @@ const locale: I18nType.Schema = {
       }
     },
     management: {
-      _value: '系统管理',
-      auth: '权限管理',
-      role: '角色管理',
-      route: '路由管理',
-      user: '用户管理'
+      _value: '治理模块',
+      report: '举报管理',
+      preview: 'BIT101预览'
     },
     about: '关于'
   },

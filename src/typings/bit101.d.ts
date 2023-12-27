@@ -1,3 +1,10 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-10-28 23:44:27
+ * @LastEditTime: 2023-12-27 15:59:41
+ * @Description:
+ * _(:з」∠)_
+ */
 declare namespace BIT101 {
   // 帖子
   interface Poster {
@@ -36,8 +43,9 @@ declare namespace BIT101 {
     id: number;
     motto: string; // 格言 简介
     nickname: string; // 昵称
-    type: {
-      color: string; // 勾勾颜色
+    identity: {
+      id: number; // 用户类型id
+      color: string; // 标识颜色
       text: string; // 用户类型描述
     };
   }
@@ -67,5 +75,26 @@ declare namespace BIT101 {
     reply_user: User; // 回复用户
     reply_obj: string; // 回复对象
     sub: Comment[]; // 子评论
+  }
+
+  interface ReportType {
+    id: number; // 举报类型id
+    text: string; // 举报类型描述
+  }
+
+  enum ReportStatus {
+    WAITING = 0,
+    SUCCESS = 1,
+    FAIL = 2
+  }
+
+  interface Report {
+    created_time: string; // 举报时间
+    id: string; // 举报id
+    obj: string; // 举报对象
+    report_type: ReportType; // 举报类型
+    status: ReportStatus; // 举报状态
+    text: string; // 举报内容
+    user: User; // 举报人
   }
 }

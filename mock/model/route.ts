@@ -41,17 +41,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
       component: 'basic',
       children: [
         {
-          name: 'document_vue',
-          path: '/document/vue',
-          component: 'self',
-          meta: {
-            title: 'vue文档',
-            i18nTitle: 'routes.document.vue',
-            requiresAuth: true,
-            icon: 'logos:vue'
-          }
-        },
-        {
           name: 'document_vite',
           path: '/document/vite',
           component: 'self',
@@ -82,17 +71,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
             i18nTitle: 'routes.document.project',
             requiresAuth: true,
             localIcon: 'logo'
-          }
-        },
-        {
-          name: 'document_project-link',
-          path: '/document/project-link',
-          meta: {
-            title: '项目文档(外链)',
-            i18nTitle: 'routes.document.project-link',
-            requiresAuth: true,
-            localIcon: 'logo',
-            href: 'https://admin-docs.soybeanjs.cn/'
           }
         }
       ],
@@ -489,52 +467,7 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
       name: 'management',
       path: '/management',
       component: 'basic',
-      children: [
-        {
-          name: 'management_auth',
-          path: '/management/auth',
-          component: 'self',
-          meta: {
-            title: '权限管理',
-            i18nTitle: 'routes.management.auth',
-            requiresAuth: true,
-            icon: 'ic:baseline-security'
-          }
-        },
-        {
-          name: 'management_role',
-          path: '/management/role',
-          component: 'self',
-          meta: {
-            title: '角色管理',
-            i18nTitle: 'routes.management.role',
-            requiresAuth: true,
-            icon: 'carbon:user-role'
-          }
-        },
-        {
-          name: 'management_user',
-          path: '/management/user',
-          component: 'self',
-          meta: {
-            title: '用户管理',
-            i18nTitle: 'routes.management.user',
-            requiresAuth: true,
-            icon: 'ic:round-manage-accounts'
-          }
-        },
-        {
-          name: 'management_route',
-          path: '/management/route',
-          component: 'self',
-          meta: {
-            title: '路由管理',
-            i18nTitle: 'routes.management.route',
-            requiresAuth: true,
-            icon: 'material-symbols:route'
-          }
-        }
-      ],
+      children: [],
       meta: {
         title: '系统管理',
         i18nTitle: 'routes.management._value',
@@ -599,17 +532,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
       component: 'basic',
       children: [
         {
-          name: 'document_vue',
-          path: '/document/vue',
-          component: 'self',
-          meta: {
-            title: 'vue文档',
-            i18nTitle: 'routes.document.vue',
-            requiresAuth: true,
-            icon: 'logos:vue'
-          }
-        },
-        {
           name: 'document_vite',
           path: '/document/vite',
           component: 'self',
@@ -640,17 +562,6 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
             i18nTitle: 'routes.document.project',
             requiresAuth: true,
             localIcon: 'logo'
-          }
-        },
-        {
-          name: 'document_project-link',
-          path: '/document/project-link',
-          meta: {
-            title: '项目文档(外链)',
-            i18nTitle: 'routes.document.project-link',
-            requiresAuth: true,
-            localIcon: 'logo',
-            href: 'https://admin-docs.soybeanjs.cn/'
           }
         }
       ],
@@ -1047,52 +958,7 @@ export const routeModel: Record<Auth.RoleType, AuthRoute.Route[]> = {
       name: 'management',
       path: '/management',
       component: 'basic',
-      children: [
-        {
-          name: 'management_auth',
-          path: '/management/auth',
-          component: 'self',
-          meta: {
-            title: '权限管理',
-            i18nTitle: 'routes.management.auth',
-            requiresAuth: true,
-            icon: 'ic:baseline-security'
-          }
-        },
-        {
-          name: 'management_role',
-          path: '/management/role',
-          component: 'self',
-          meta: {
-            title: '角色管理',
-            i18nTitle: 'routes.management.role',
-            requiresAuth: true,
-            icon: 'carbon:user-role'
-          }
-        },
-        {
-          name: 'management_user',
-          path: '/management/user',
-          component: 'self',
-          meta: {
-            title: '用户管理',
-            i18nTitle: 'routes.management.user',
-            requiresAuth: true,
-            icon: 'ic:round-manage-accounts'
-          }
-        },
-        {
-          name: 'management_route',
-          path: '/management/route',
-          component: 'self',
-          meta: {
-            title: '路由管理',
-            i18nTitle: 'routes.management.route',
-            requiresAuth: true,
-            icon: 'material-symbols:route'
-          }
-        }
-      ],
+      children: [],
       meta: {
         title: '系统管理',
         i18nTitle: 'routes.management._value',

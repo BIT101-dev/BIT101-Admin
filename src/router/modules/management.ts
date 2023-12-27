@@ -1,54 +1,39 @@
+/*
+ * @Author: flwfdd
+ * @Date: 2023-09-20 08:42:22
+ * @LastEditTime: 2023-12-27 18:10:33
+ * @Description:
+ * _(:з」∠)_
+ */
 const management: AuthRoute.Route = {
   name: 'management',
   path: '/management',
   component: 'basic',
   children: [
     {
-      name: 'management_auth',
-      path: '/management/auth',
+      name: 'management_report',
+      path: '/management/report',
       component: 'self',
       meta: {
-        title: '权限管理',
-        i18nTitle: 'routes.management.auth',
+        title: '举报管理',
+        i18nTitle: 'routes.management.report',
         requiresAuth: true,
         keepAlive: true,
-        icon: 'ic:baseline-security'
+        icon: 'mdi:report'
       }
     },
     {
-      name: 'management_role',
-      path: '/management/role',
+      name: 'management_preview',
+      path: '/management/preview',
       component: 'self',
       meta: {
-        title: '角色管理',
-        i18nTitle: 'routes.management.role',
+        title: 'BIT101预览',
+        i18nTitle: 'routes.management.preview',
         requiresAuth: true,
+        hide: true,
+        multiTab: true,
         keepAlive: true,
-        icon: 'carbon:user-role'
-      }
-    },
-    {
-      name: 'management_user',
-      path: '/management/user',
-      component: 'self',
-      meta: {
-        title: '用户管理',
-        i18nTitle: 'routes.management.user',
-        requiresAuth: true,
-        keepAlive: true,
-        icon: 'ic:round-manage-accounts'
-      }
-    },
-    {
-      name: 'management_route',
-      path: '/management/route',
-      component: 'self',
-      meta: {
-        title: '路由管理',
-        i18nTitle: 'routes.management.route',
-        requiresAuth: true,
-        keepAlive: true,
-        icon: 'material-symbols:route'
+        icon: 'ic:round-tab'
       }
     }
   ],
